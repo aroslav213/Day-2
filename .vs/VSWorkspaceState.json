@@ -3,8 +3,9 @@
     "",
     "\\src",
     "\\src\\authors",
-    "\\src\\books"
+    "\\src\\books",
+    "\\src\\books\\dto"
   ],
-  "SelectedNode": "\\src\\authors\\authors.controller.ts",
+  "SelectedNode": "\\books.json",
   "PreviewInSolutionExplorer": false
 }

@@ -2,28 +2,33 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 
 @Injectable()
 export class BooksService {
-    private books = [
-        {
-            id: 1,
-            title: 'Гаррі Поттер',
-            genre: 'Фентезі',
-            authorId: 1,
-            isReserved: false,
-        },
-    ];
+  private books: any[] = require('../../books.json');
 
-    findAll() {
-        return this.books;
-    }
+  findAll() {
+    return this.books;
+  }
 
-    findOne(id: number) {
-        const book = this.books.find((b) => b.id === id);
-        if (!book) throw new NotFoundException('Книгу не знайдено');
-        return book;
-    }
+  findOne(id: number) {
+    const book = this.books.find((b) => b.id === id);
+    if (!book) throw new NotFoundException('Книгу не знайдено');
+    return book;
+  }
 
-    create(book: any) {
-        this.books.push(book);
-        return book;
-    }
+  create(book) {
+    this.books.push(book);
+    return book;
+  }
+
+  update(id: number, data: any) {
+    const book = this.findOne(id);
+    Object.assign(book, data);
+    return book;
+  }
+
+  remove(id: number) {
+    const index = this.books.findIndex((b) => b.id === id);
+    if (index === -1) throw new NotFoundException('Книгу не знайдено');
+    this.books.splice(index, 1);
+    return { message: 'Книгу видалено' };
+  }
 }
