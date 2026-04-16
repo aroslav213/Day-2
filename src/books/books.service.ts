@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+п»їimport { Injectable, NotFoundException } from '@nestjs/common';
 
 @Injectable()
 export class BooksService {
@@ -10,7 +10,7 @@ export class BooksService {
 
   findOne(id: number) {
     const book = this.books.find((b) => b.id === id);
-    if (!book) throw new NotFoundException('Книгу не знайдено');
+    if (!book) throw new NotFoundException('РљРЅРёРіСѓ РЅРµ Р·РЅР°Р№РґРµРЅРѕ');
     return book;
   }
 
@@ -27,8 +27,8 @@ export class BooksService {
 
   remove(id: number) {
     const index = this.books.findIndex((b) => b.id === id);
-    if (index === -1) throw new NotFoundException('Книгу не знайдено');
+    if (index === -1) throw new NotFoundException('РљРЅРёРіСѓ РЅРµ Р·РЅР°Р№РґРµРЅРѕ');
     this.books.splice(index, 1);
-    return { message: 'Книгу видалено' };
+    return { message: 'РљРЅРёРіСѓ РІРёРґР°Р»РµРЅРѕ' };
   }
 }

@@ -1,8 +1,8 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+п»їimport { Injectable, NotFoundException } from '@nestjs/common';
 
 @Injectable()
 export class AuthorsService {
-  private authors: any[] = [];
+  private authors: any[] = require('../../authors.json');
 
   findAll() {
     return this.authors;
@@ -10,7 +10,7 @@ export class AuthorsService {
 
   findOne(id: number) {
     const author = this.authors.find((a) => a.id === id);
-    if (!author) throw new NotFoundException('Автора не знайдено');
+    if (!author) throw new NotFoundException('РђРІС‚РѕСЂР° РЅРµ Р·РЅР°Р№РґРµРЅРѕ');
     return author;
   }
 
@@ -27,8 +27,8 @@ export class AuthorsService {
 
   remove(id: number) {
     const index = this.authors.findIndex((a) => a.id === id);
-    if (index === -1) throw new NotFoundException('Автора не знайдено');
+    if (index === -1) throw new NotFoundException('РђРІС‚РѕСЂР° РЅРµ Р·РЅР°Р№РґРµРЅРѕ');
     this.authors.splice(index, 1);
-    return { message: 'Автора видалено' };
+    return { message: 'РђРІС‚РѕСЂР° РІРёРґР°Р»РµРЅРѕ' };
   }
 }

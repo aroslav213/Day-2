@@ -1,11 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\src",
-    "\\src\\authors",
-    "\\src\\books",
-    "\\src\\books\\dto"
+    "\\frontend",
+    "\\frontend\\src",
+    "\\frontend\\src\\pages"
   ],
-  "SelectedNode": "\\books.json",
+  "SelectedNode": "\\frontend\\src\\pages\\Books.tsx",
   "PreviewInSolutionExplorer": false
 }
